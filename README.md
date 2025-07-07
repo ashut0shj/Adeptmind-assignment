@@ -33,10 +33,8 @@ pip install -r requirements.txt
 # Start Redis (if not running)
 redis-server
 
-# Run scraper to fetch data
 python scraper.py
 
-# Start Flask API
 python app.py
 ```
 
