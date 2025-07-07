@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import redis
 import json
-from pprint import pprint
 
 
 def scrape_page_elements(url):
@@ -47,34 +46,18 @@ def scrape_page_elements(url):
         "header": str(header) if header else None,
         "products": products,
     }
+    # print(response)
+    print("Scraping completed")
     return response
 
 
 def store_in_redis(data):
     r = redis.Redis(host='localhost', port=6379, db=0)
     r.set("scraped_content", json.dumps(data))
+    print("Data stored in redis")
 
 
 if __name__ == "__main__":
     url = "https://www.croma.com/televisions-accessories/c/997"
     page_elements = scrape_page_elements(url)
-
-    print("\n===== <head> Element =====\n")
-    if page_elements["head"]:
-        print(page_elements["head"][:1000] + ("..." if len(page_elements["head"]) > 1000 else ""))
-    else:
-        print("No <head> element found.")
-
-    print("\n===== <header> Element =====\n")
-    if page_elements["header"]:
-        print(page_elements["header"])
-    else:
-        print("No <header> element found.")
-
-    print(f"\n===== {len(page_elements['products'])} Products Found =====\n")
-    for i, product in enumerate(page_elements["products"], 1):
-        print(f"Product #{i}:")
-        pprint(product)
-        print("-" * 60)
-
     store_in_redis(page_elements)
