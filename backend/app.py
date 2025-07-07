@@ -10,11 +10,8 @@ r = redis.Redis(host='localhost', port=6379, db=0)
 @app.route("/scraped-content", methods=["GET"])
 def get_scraped_content():
     """
-    TODO: Implement an API to retrieve scraped content from Redis.
-    This endpoint should do the following:
-    2. Retrieve the scraped content from Redis.
-    4. If no data is found, return a 404 error with a message.
-    5. If data is found, return a success response with the data in JSON format.
+    Get all scraped data from Redis.
+    Returns head, header, and products from the Croma website.
     """
     data = r.get("scraped_content")
     if data:
@@ -25,7 +22,8 @@ def get_scraped_content():
 @app.route("/products", methods=["GET"])
 def get_products():
     """
-    This endpoint returns a list of products with their details.
+    Get only the products list from scraped data.
+    Returns TV and accessory products with prices, discounts, and offers.
     """
     data = r.get("scraped_content")
     if data:
