@@ -9,7 +9,7 @@ def scrape_page_elements(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    head = soup.headre
+    head = soup.head
     header = soup.find('div', class_='bs-header')
 
     products = []
@@ -60,10 +60,16 @@ if __name__ == "__main__":
     page_elements = scrape_page_elements(url)
 
     print("\n===== <head> Element =====\n")
-    print(page_elements["head"][:1000] + ("..." if page_elements["head"] and len(page_elements["head"]) > 1000 else ""))
+    if page_elements["head"]:
+        print(page_elements["head"][:1000] + ("..." if len(page_elements["head"]) > 1000 else ""))
+    else:
+        print("No <head> element found.")
 
     print("\n===== <header> Element =====\n")
-    print(page_elements["header"][:1000] + ("..." if page_elements["header"] and len(page_elements["header"]) > 1000 else ""))
+    if page_elements["header"]:
+        print(page_elements["header"][:1000] + ("..." if len(page_elements["header"]) > 1000 else ""))
+    else:
+        print("No <header> element found.")
 
     print(f"\n===== {len(page_elements['products'])} Products Found =====\n")
     for i, product in enumerate(page_elements["products"], 1):
