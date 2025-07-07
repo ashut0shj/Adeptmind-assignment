@@ -22,9 +22,12 @@ A Python + Vue.js app that scrapes product data from Croma's Televisions & Acces
 
 ### Backend Setup
 ```bash
-cd backend
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate   # On Linux/macOS
+venv\Scripts\activate     # On Windows
+
+cd backend
+
 pip install -r requirements.txt
 
 # Start Redis (if not running)
