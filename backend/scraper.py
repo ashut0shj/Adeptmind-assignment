@@ -5,6 +5,10 @@ import json
 
 
 def scrape_page_elements(url):
+    """
+    Scrape head, header, and products from Croma website.
+    Returns all scraped data as a dictionary.
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -52,6 +56,9 @@ def scrape_page_elements(url):
 
 
 def store_in_redis(data):
+    """
+    Save scraped data to Redis database, under the key 'scraped_content'.
+    """
     r = redis.Redis(host='localhost', port=6379, db=0)
     r.set("scraped_content", json.dumps(data))
     print("Data stored in redis")
