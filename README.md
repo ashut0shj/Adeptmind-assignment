@@ -24,7 +24,7 @@ A Python + Vue.js app that scrapes product data from Croma's Televisions & Acces
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Linux/macOS
+source venv/bin/activate
 pip install -r requirements.txt
 
 # Start Redis (if not running)
@@ -51,17 +51,3 @@ npm run serve
 3. **Flask API** provides endpoints to access the stored data
 4. **Vue.js Frontend** fetches data from API and displays products
 
-## Project Structure
-```
-project/
-├── backend/
-│   ├── app.py          # Flask API
-│   ├── scraper.py      # Web scraper
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   │   ├── App.vue    # Main component
-│   │   └── Product.vue # Product card
-│   └── package.json
-└── README.md
-```
