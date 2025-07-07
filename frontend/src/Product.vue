@@ -46,19 +46,19 @@ export default {
 }
 
 .product-content {
-  padding: 20px;
+  padding: 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .product-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
-  color: #1f2937;
+  color: #000000;
   text-decoration: none;
   line-height: 1.4;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -74,17 +74,17 @@ export default {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .new-price {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: #1f2937;
 }
 
 .old-price {
-  font-size: 16px;
+  font-size: 18px;
   color: #9ca3af;
   text-decoration: line-through;
 }
@@ -92,12 +92,12 @@ export default {
 .discount-badge {
   background: #dc2626;
   color: white;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   align-self: flex-start;
 }
 
@@ -110,11 +110,11 @@ export default {
 
 .tag {
   background: #f3f4f6;
-  color: #374151;
-  font-size: 11px;
+  color:rgb(0, 0, 0);
+  font-size: 12px;
   font-weight: 500;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 3px solid #e5e7eb;
 }
 </style> 

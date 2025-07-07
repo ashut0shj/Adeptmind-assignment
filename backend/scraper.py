@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
     print("\n===== <header> Element =====\n")
     if page_elements["header"]:
-        print(page_elements["header"][:1000] + ("..." if len(page_elements["header"]) > 1000 else ""))
+        print(page_elements["header"])
     else:
         print("No <header> element found.")
 
